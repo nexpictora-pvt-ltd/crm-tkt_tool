@@ -9,7 +9,6 @@ function App() {
      <h1>CRM + Ticketing Tool</h1>
      <img src={bgImage} alt='Main Logo'></img>
      <h3>Innovate, Elevate, Confide the Journey</h3>
-     <h4>Dummy h4</h4>
     </>
   )
 }
