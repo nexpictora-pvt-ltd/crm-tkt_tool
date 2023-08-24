@@ -1,0 +1,68 @@
+$color-welcome-message: #094390;
+$color-credentials: #A89A9A;
+$color-sign-in: #000;
+
+@mixin typography($fontFamily, $fontWeight, $fontSize) {
+  font-family: $fontFamily, sans-serif;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+}
+
+.WelcomeMessage {
+  color: $color-welcome-message;
+  @include typography('Poppins', 500, 1.8rem);
+  line-height: normal;
+  margin-top: 6%;
+}
+
+.Credentials {
+  color: $color-credentials;
+  @include typography('Poppins', 400, 1.2rem);
+  line-height: normal;
+  margin-top: 12%;
+}
+
+.SignIn {
+  flex-shrink: 0;
+  color: $color-sign-in;
+  @include typography('Poppins', 400, 1.25rem);
+  line-height: normal;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.block {
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: #d3efef;
+  position: absolute;
+  padding: 40px;
+  margin-top: 3%;
+  display: inline-block;
+}
+
+.forgot-password {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a {
+    @include typography('Poppins', 600, 20px);
+  }
+  margin-top: 2%;
+  margin-left: 5%;
+}
+
+.newAccount {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a {
+    @include typography('Poppins', 200, 20px);
+  }
+}
+
+
+
+
