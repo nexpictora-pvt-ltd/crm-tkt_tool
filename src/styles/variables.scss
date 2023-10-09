@@ -1,0 +1,44 @@
+// Screen sizes
+$screen-sm: 600px;
+$screen-md: 900px;
+$screen-lg: 1200px;
+$screen-xl: 1536px;
+
+// Dalkia theme Colors
+$left-nav-bg-color: #1A455D;
+$btn-link-color: #1A455D;
+$btn-font-color: #FFF;
+$btn-disabled-color: #0000001F;
+$btn-disabled-font-color: #00000061;
+$header-font-color: #181818;
+$para-font-color: #6C6C6C;
+$textfield-outlined-color: #0000003B;
+$para-font-color2: #C2C2C2;
+$left-nav-menu-hover-color: #ffffffc8;
+$ligt-bg-color: #0000ff;
+$btn-hover-color: #107ab3;
+$body-bg-color: #b9b9b9;
+$checkbox-text-color: #00000061;
+$left-nav-menu-selected-color: #b8b5ef3d;
+$mobile-nav-body2-color: #1A455D;
+$spinner-overlay-bg-color: #f8f8f8ad;
+
+//Tekgeminus theme colors
+// $left-nav-bg-color: #1A455D;
+// $btn-link-color: #e08a21;
+// $btn-hover-color: #c87918;
+// $btn-font-color: #fff;
+// $btn-disabled-color: #0000001f;
+// $btn-disabled-font-color: #00000061;
+// $header-font-color: #0b093f;
+// $para-font-color: #6c6c6c;
+// $textfield-outlined-color: #0000003b;
+// $para-font-color2: #3f3c6b;
+// $left-nav-menu-selected-color: #9747ff26;
+// $ligt-bg-color: #0000ff;
+// $checkbox-text-color: #00000061;
+
+:export {
+  headerFontColor: $header-font-color;
+  paraFontColor2: $para-font-color2;
+}
