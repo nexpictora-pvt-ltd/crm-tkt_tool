@@ -4,9 +4,9 @@ import {Grid,IconButton,InputAdornment,TextField,Checkbox,
     Box,FormGroup,FormControlLabel,Link,Button, Typography,} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import emailValidator from "email-validator";
-import Logopart1 from '../assets/logo_part1.jpg';
-import Logopart2 from '../assets/logo_part2.jpg';
-import "./Signin.scss"
+import "./Signin.scss";
+// import { styled } from '@mui/material/styles';
+
 
 const CheckboxLabels = () => {
     return (
