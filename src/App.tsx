@@ -9,6 +9,7 @@ import PrivateRoutes from './utils/PrivateRoutes';
 import ServicePage from './pages/Service/Service.page';
 import Preview from './pages/Preview/preview';
 import Customer from './pages/Customers/customer.page';
+import Order from './pages/Oders/Orders.page';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='dashboard' element={<Dashboard></Dashboard>} index></Route>
           <Route path='service' element={<ServicePage></ServicePage>} ></Route>
           <Route path='customer' element={<Customer></Customer>} ></Route>
+          <Route path='orders' element={<Order></Order>} ></Route>
 
           </Route>
 
