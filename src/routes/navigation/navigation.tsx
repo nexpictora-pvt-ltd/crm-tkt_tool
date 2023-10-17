@@ -11,13 +11,18 @@ const Navigation = () => {
     <Fragment>
       <Box>
         <Container maxWidth={false} disableGutters>
-          <Grid container direction="column">
-            <SearchBar></SearchBar>
-            <Grid item container direction="row">
-              <Grid item xs={12} className="main-content-grid">
+
+          
+          <Grid container direction="column" >
+              <SearchBar></SearchBar>
+            {/* <Grid item container direction="row"> */}
+
+              
+              <Grid item xs={12}  className="main-content-grid">
                 <Outlet />
               </Grid>
-            </Grid>
+            {/* </Grid> */}
+           
           </Grid>
         </Container>
       </Box>
