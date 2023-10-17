@@ -9,6 +9,7 @@ import Preview from "./pages/Preview/preview";
 import Customer from "./pages/Customers/customer.page";
 import AuthLayout from "./routes/auth/authLayout";
 import Register from "./pages/Register/Register";
+import Profile from "./pages/Profile/profile.page";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="service" element={<ServicePage />} />
         <Route path="customer" element={<Customer />} />
+        <Route path ="profile" element={<Profile/>}/>
       </Route>
       <Route path="auth" element={<AuthLayout />}>
         <Route path="sign-in" element={<SignIn />} />
