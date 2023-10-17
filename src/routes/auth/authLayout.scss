@@ -1,0 +1,16 @@
+.SigninBgimg {
+    max-height: 100vh;
+    max-width: 100vh;
+    object-fit: auto; 
+    object-position: center center; 
+  }
+  
+  .image-grid {
+    // Remove the height property
+  }
+  
+  .auth-component-grid {
+    min-height: 100vh; 
+    overflow: hidden !important;
+  }
+  
