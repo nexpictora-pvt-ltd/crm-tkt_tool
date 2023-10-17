@@ -1,38 +1,29 @@
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import SignIn from "./pages/Signin/Signin";
+import Dashboard from "./pages/Dashboard/dashboard";
+import Navigation from "./routes/navigation/navigation";
+import PrivateRoutes from "./utils/PrivateRoutes";
+import ServicePage from "./pages/Service/Service.page";
+import Preview from "./pages/Preview/preview";
+import Customer from "./pages/Customers/customer.page";
+import AuthLayout from "./routes/auth/authLayout";
+import Register from "./pages/Register/Register";
 
-import {  Route, Routes } from 'react-router-dom'
-import './App.css'
-// import Dashboard from './pages/Dashboard/dashboard'
-import SignIn from './pages/Signin/Signin'
-import Dashboard from './pages/Dashboard/dashboard';
-import Navigation from './routes/navigation/navigation';
-import PrivateRoutes from './utils/PrivateRoutes';
-import ServicePage from './pages/Service/Service.page';
-import Preview from './pages/Preview/preview';
-import Customer from './pages/Customers/customer.page';
-import Order from './pages/Oders/Orders.page';
-
-function App() {
+export default function App() {
   return (
-    <>
-      
-      
-      <Routes>
-        <Route path="/" element={ <PrivateRoutes />}/>
-        <Route path='/signin' element={<SignIn></SignIn>}></Route>
-        <Route path='/preview' element={<Preview></Preview>} ></Route>
-          <Route path='/secure' element={<Navigation></Navigation>}>
-          <Route path='dashboard' element={<Dashboard></Dashboard>} index></Route>
-          <Route path='service' element={<ServicePage></ServicePage>} ></Route>
-          <Route path='customer' element={<Customer></Customer>} ></Route>
-          <Route path='orders' element={<Order></Order>} ></Route>
-
-          </Route>
-
+    <Routes>
+      <Route path="/" element={<PrivateRoutes />} />
+      <Route path="/preview" element={<Preview />} />
+      <Route path="/secure" element={<Navigation />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="service" element={<ServicePage />} />
+        <Route path="customer" element={<Customer />} />
+      </Route>
+      <Route path="auth" element={<AuthLayout />}>
+        <Route path="sign-in" element={<SignIn />} />
+        <Route path="register" element={<Register />} />
+      </Route>
     </Routes>
-    
-
-    </>
-  )
+  );
 }
-
-export default App;
