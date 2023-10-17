@@ -1,6 +1,6 @@
 import { configureStore, Middleware } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import { rootReducer } from "./root-reducer";
+import { rootReducer } from "./rootReducer";
 
 export type RootState = ReturnType<typeof rootReducer>;
 
