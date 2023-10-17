@@ -18,13 +18,13 @@ const Navigation = () => {
           
           <Grid container direction="column" >
               <SearchBar></SearchBar>
-            <Grid item container direction="row">
+            {/* <Grid item container direction="row"> */}
 
               
               <Grid item xs={12}  className="main-content-grid">
                 <Outlet />
               </Grid>
-            </Grid>
+            {/* </Grid> */}
             
           </Grid>
         </Container>

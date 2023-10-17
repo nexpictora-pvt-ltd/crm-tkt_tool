@@ -17,7 +17,7 @@ export default function Dashboard() {
   return (
     <>
       <Grid container spacing={0} >
-        <Grid xs={0.5} >cbvn</Grid>
+        <Grid xs={0.5} ></Grid>
         <Grid xs={11.5} >
           {/* <SearchBar></SearchBar> */}
           <Side></Side>
@@ -27,3 +27,9 @@ export default function Dashboard() {
     </>
   );
 }
+
+
+//sales(number of oder)-month-first block
+//profit- month -second block
+//sales-profit-number of customers -month:line chart
+// percentage of top 3 services for the month(max numbers of customers are for which services)-pie

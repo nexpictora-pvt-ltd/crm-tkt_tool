@@ -6,10 +6,11 @@ import SignIn from './pages/Signin/Signin'
 import Dashboard from './pages/Dashboard/dashboard';
 import Navigation from './routes/navigation/navigation';
 import PrivateRoutes from './utils/PrivateRoutes';
-import ServicePage from './pages/Service/Service.page';
+import ServicePage from './pages/Service_Page/Service.page';
 import Preview from './pages/Preview/preview';
 import Customer from './pages/Customers/customer.page';
 import Order from './pages/Oders/Orders.page';
+import Profile from './pages/Profile/profile.page';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path='service' element={<ServicePage></ServicePage>} ></Route>
           <Route path='customer' element={<Customer></Customer>} ></Route>
           <Route path='orders' element={<Order></Order>} ></Route>
+          <Route path='profile' element={<Profile></Profile>} ></Route>
+          
 
           </Route>
 
