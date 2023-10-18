@@ -3,11 +3,8 @@
 Welcome to the documentation for the CRM-Ticketing Tool's Frontend. This guide will provide an in-depth overview of the project's frontend structure, its technologies, and comprehensive instructions on how to set up and run the project locally.
 
 ## Introduction
-- **Project Introduction:**  
-  Provide a brief overview of the CRM-Ticketing Tool project, its objectives, and its role within Nex-Pictora Pvt Ltd.
-
 - **Documentation Purpose:**  
-  Explain the purpose of this documentation, which is to provide insights into the frontend aspects of the project and help users set up and work with it.
+  The purpose of this documentation is to provide insights into the frontend aspects of the project and help users set up and work with it.
 
 - **Audience:**  
   Specify the intended audience, such as developers, testers, or other team members. Ensure they have the necessary authorization to access the documentation.
@@ -190,13 +187,12 @@ Welcome to the documentation for the CRM-Ticketing Tool's Frontend. This guide w
 - **Bug Reports and Feature Requests:**  
   Describe the process for submitting bug reports and feature requests.
 
-## License
-- **License Type:**  
-  Specify the project's license type (e.g., MIT) and include a link to the full license text.
 
-- **License Implications:**  
-  Explain how the license applies to the project, including any restrictions or requirements.
 
 ## Contact
 - **Contact Information:**  
-  Provide contact details for project maintainers or developers in case users need assistance, including email addresses, GitHub profiles, or other relevant contact information.
+ [nabilpatel4012@gmail.com](mailto:nabilpatel4012@gmail.com)
+
+    [sourabh.munde15@gmail.com](mailto:sourabh.munde15@gmail.com)
+
+    [ishapathak515@gmail.com](mailto:ishapathak515@gmail.com)
