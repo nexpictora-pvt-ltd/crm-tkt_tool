@@ -17,8 +17,7 @@ export default function Dashboard() {
   return (
     <>
       <Grid container spacing={0} >
-        <Grid xs={0.5} >cbvn</Grid>
-        <Grid xs={11.5} >
+        <Grid xs={12} >
           {/* <SearchBar></SearchBar> */}
           <Side></Side>
         </Grid>

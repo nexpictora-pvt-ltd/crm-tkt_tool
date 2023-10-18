@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+
+.css-hyum1k-MuiToolbar-root {
+    padding-left: 20px !important;
+} 
+
+.nav-button .MuiListItemIcon-root {
+    color: #1A455D;
+}
+
+
+.menu-items {
+    padding: 0 !important;
+    height: 100%;
+  
+    li {
+      padding: 10px 0px !important;
+      margin-bottom: 10px;
+  
+      &.Mui-selected {
+        border-radius: 15px;
+        background: #7297c8;
+      }
+  
+      &.Mui-selected:hover {
+        border-radius: 5px;
+        background: #477fcdce;
+      }
+    }
+  
+    .MuiTypography-body1 {
+      color: #fff;
+      font-size: 14px;
+      white-space: break-spaces;
+    }
+  
+    .MuiListItemIcon-root {
+    //   min-width: 30px !important;
+      color: #fff !important;
+    }
+  
+
+  }
+
+  .menu-items2 {
+    padding: 0 !important;
+
+  
+    li {
+      padding: 8px 0px !important;
+      margin-bottom: 10px;
+  
+      &.Mui-selected {
+        border-radius: 15px;
+        background: #7297c8;
+      }
+  
+      &.Mui-selected:hover {
+        border-radius: 5px;
+        background: #477fcdce;
+      }
+    }
+  
+    .MuiTypography-body1 {
+      color: #fff;
+      font-size: 14px;
+    //   font-style: normal;
+    //   font-weight: 400 !important;
+    //   line-height: 20px;
+      white-space: break-spaces;
+    }
+  
+    .MuiListItemIcon-root {
+    //   min-width: 30px !important;
+      color: #fff;
+    }
+  
+    .logout-menu {
+      .MuiTypography-body1,
+      .MuiListItemIcon-root {
+        color: #fa707b;
+      }
+    }
+  }

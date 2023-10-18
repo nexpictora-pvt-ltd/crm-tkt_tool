@@ -5,5 +5,7 @@ export default Object.freeze({
     SERVICE: "/secure/service",
     CUSTOMER: "/secure/customer",
     PROFILE: "/secure/profile",
+    ORDERS: "/secure/orders",
+    PREVIEW: '/preview',
   });
   
