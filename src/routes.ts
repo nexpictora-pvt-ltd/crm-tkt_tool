@@ -7,5 +7,7 @@ export default Object.freeze({
     PROFILE: "/secure/profile",
     ORDERS: "/secure/orders",
     PREVIEW: '/preview',
+    DATA: "/secure/data",
+    SETTINGS: "/secure/settings",
   });
   

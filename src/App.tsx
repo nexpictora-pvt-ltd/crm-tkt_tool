@@ -11,6 +11,8 @@ import AuthLayout from "./routes/auth/authLayout";
 import Register from "./pages/Register/Register";
 import Profile from "./pages/Profile/profile.page";
 import Order from "./pages/Oders/Orders.page";
+import { Data } from "./pages/Data/Data";
+import { Setting } from "./pages/Settings/Setting";
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
         <Route path="customer" element={<Customer />} />
         <Route path ="profile" element={<Profile/>}/>
         <Route path ="orders" element={<Order/>} />
+        <Route path="data" element={<Data/>} />
+        <Route path="settings" element={<Setting/>} />
       </Route>
       <Route path="auth" element={<AuthLayout />}>
         <Route path="sign-in" element={<SignIn />} />
