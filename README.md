@@ -1,3 +1,5 @@
+# **`This Porject is Under Heavy Development and Does not Represent Final Quality`**
+
 # CRM-Ticketing Tool Frontend
 
 Welcome to the documentation for the CRM-Ticketing Tool's Frontend. This guide will provide an in-depth overview of the project's frontend structure, its technologies, and comprehensive instructions on how to set up and run the project locally.
