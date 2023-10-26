@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { Fragment, useState } from "react";
 import {
@@ -18,8 +19,16 @@ import "./Signin.scss";
 import ROUTES from "../../routes";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { loginAsync} from '../../store/login/login.reducer';
+import  { API_ENDPOINTS, axiosCall}  from '../../apiConfig';
+import { getServiceLogin } from "../../services/login.service";
 
-
+  
+interface apiResponse {
+  success: boolean; // Adjust this based on your actual response structure
+  // Add other properties as needed
+}// Explicit type annotation
 
 const CheckboxLabels = () => {
   return (
@@ -65,13 +74,17 @@ const NewAccount = () => {
 
 
 
-
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState<null | string>(null); // Explicit type annotation
+  const [error, setError] = useState<null | string>(null);
 
+
+  const dispatch = useDispatch();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
@@ -88,12 +101,41 @@ const SignIn = () => {
     setIsValidEmail(isValid);
   };
 
-  const isSigninDisabled = !isValidEmail || passwordValue === "";
+  const isSigninDisabled = !isValidEmail || passwordValue === "" || loading;
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  const navigate = useNavigate();
+  const handleSignIn = async () => {
+    setLoading(true);
+  
+    try {
+      const requestData = {
+        email,
+        password: passwordValue,
+      };
+  
+      // Dispatch the loginAsync action and cast it to AnyAction
+      const action = loginAsync(requestData) as any;
+      const resultAction = await dispatch(action);
+  
+      if (loginAsync.fulfilled.match(resultAction)) {
+        // Authentication was successful
+        setLoading(false);
+        navigate(ROUTES.DASHBOARD);
+      } else {
+        setError("Invalid email or password.");
+        setLoading(false);
+      }
+    } catch (apiError) {
+      console.error("Sign-in failed: ", apiError);
+      setError("An error occurred. Please try again.");
+      setLoading(false);
+    }
+  };
+  
   return (
     <Fragment>
       <Grid
@@ -165,6 +207,7 @@ const SignIn = () => {
               onChange={handleEmailChange}
               value={email}
             />
+            
           </Grid>
           <Grid
             container
@@ -221,21 +264,23 @@ const SignIn = () => {
             direction="column"
             marginTop={{ xs: "0vh", sm: "2vh", md: "4vh" }}
           >
-            <Link to={ROUTES.DASHBOARD} style={{ textDecoration: 'none' }} >
+            {/* <Link to={ROUTES.DASHBOARD} style={{ textDecoration: 'none' }} > */}
               <Grid container>
-                <Button
-                  variant="contained"
-                  disabled={isSigninDisabled}
-                  sx={{
-                    width: "100%",
-                    borderRadius: "0.8rem",
-                    background: "#3767A5",
-                  }}
-                >
-                  Sign In
-                </Button>{" "}
+              {error && <Typography color="error">{error}</Typography>}
+      <Button
+        variant="contained"
+        disabled={isSigninDisabled}
+        sx={{
+          width: "100%",
+          borderRadius: "0.8rem",
+          background: "#3767A5",
+        }}
+        onClick={handleSignIn}
+      >
+        {loading ? "Signing In..." : "Sign In"}
+      </Button>{" "}
               </Grid>
-            </Link>
+            {/* </Link> */}
             <NewAccount />
           </Grid>
         </Grid>

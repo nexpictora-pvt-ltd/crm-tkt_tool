@@ -4,17 +4,20 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { servicePreviewSelector } from '../../store/preview/servicePreview.selector';
 import { getServicesAsync } from '../../store/preview/servicePreview.reducer';
-import {token} from '../../token'
+
 
 const Preview:FC = () => {
   const { services, isLoading: servicesLoading} =
     useAppSelector(servicePreviewSelector);
 
+  const accessToken = useAppSelector((state) => state.login.loginResponse.access_token);
+
+  // console.log(accessToken)
   const dispatch = useAppDispatch();
-  // const {profileInfo} = useAppSelector(personInfoSelector)
+
   useEffect(() => {
-    dispatch(getServicesAsync(token));
-    // console.log(profileInfoRequest + "Helllo------------------------")
+    dispatch(getServicesAsync(accessToken));
+
   }, [dispatch]);
   return (
     <Fragment>

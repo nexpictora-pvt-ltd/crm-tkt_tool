@@ -23,6 +23,15 @@ h2.MuiTypography-h2 {
   color: $header-font-color;
 }
 
+h4.MuiTypography-h4 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: $header-font-color;
+}
+
 p.MuiTypography-body1 {
   font-family: 'Poppins', sans-serif !important;
   font-size: 16px;
@@ -35,6 +44,7 @@ p.MuiTypography-body1 {
 
 p.MuiTypography-body2 {
   font-family: 'Poppins', sans-serif !important;
+  
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

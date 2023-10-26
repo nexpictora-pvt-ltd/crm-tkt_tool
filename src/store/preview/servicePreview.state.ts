@@ -9,7 +9,7 @@ export interface Service {
     readonly services: Service[] | [];
     readonly selectedService: Service | null;
     readonly isLoading: boolean | false;
-    readonly error: {} | null;
+    readonly error: unknown | null;
   };
   
   const INITIAL_STATE: ServiceState = {

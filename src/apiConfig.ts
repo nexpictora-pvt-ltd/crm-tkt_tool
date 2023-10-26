@@ -1,54 +1,12 @@
-// import axios, { AxiosResponse, Method } from "axios";
-
-// export const API_BASE_URL = "http://localhost:8080";
-
-// export const API_ENDPOINTS = {
-//   // Define your API endpoints here using the API_BASE_URL
-//   // For example:
-//   // getSomeData: `${API_BASE_URL}/someEndpoint`,
-// };
-
-// export const axiosCall = async <T, R>(
-//   method: Method,
-//   request: T,
-//   url: string,
-//   bearerToken?: string
-// ): Promise<R> => {
-//   try {
-//     console.log("API Request URL:", url);
-    
-//     // Set headers with Bearer token if provided
-//     const headers: { [key: string]: string } = {};
-//     if (bearerToken) {
-//       headers["Authorization"] = `Bearer ${bearerToken}`;
-//     }
-
-//     console.log("API Request Headers:", headers);
-//     console.log("API Request Data:", request);
-
-//     const response: AxiosResponse<R> = await axios({
-//       url: `${API_BASE_URL}${url}`,
-//       method: method,
-//       headers: headers,
-//       data: request,
-//     });
-
-//     console.log("API Response Data:", response.data);
-
-//     return response.data;
-//   } catch (error) {
-//     // Handle errors according to your use case
-//     console.error("API Request Error:", error);
-//     throw error;
-//   }
-// };
 
 import axios, { AxiosResponse, Method } from "axios";
 
-export const API_BASE_URL = "http://localhost:8080";
+export const API_BASE_URL = "http://192.168.0.249:8080";
 
 export const API_ENDPOINTS = {
-  getPreviewInfo: `/services/preview`
+  getPreviewInfo: `/services/preview`,
+  getLoginDetails: `/users/login`,
+  getUserDetails: `/users/10001`
 };
 
 interface RequestOptions<T> {

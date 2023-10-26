@@ -1,8 +1,16 @@
 @import "../../styles/variables";
 
 
+.css-i4bv87-MuiSvgIcon-root {
+  color: #fff;
+}
 
-
+.logo-img{
+  // display: flex !important;
+  height: 100%;
+  width: 100%;
+  padding-top: 5%;
+}
 .menu-items {
     padding: 0 !important;
     height: 100%;
@@ -21,11 +29,10 @@
         background: #477fcdce !important;
       }
     }
-  
-    .MuiTypography-body1 {
-      color: #fff;
-      font-size: 14px;
-      white-space: break-spaces;
+
+    p.MuiTypography-body2{
+      color: #fff ;
+      font-size: 16px;
     }
   
     .MuiListItemIcon-root {
@@ -55,24 +62,18 @@
       }
     }
   
-    .MuiTypography-body1 {
-      color: #fff;
-      font-size: 14px;
-    //   font-style: normal;
-    //   font-weight: 400 !important;
-    //   line-height: 20px;
-      white-space: break-spaces;
+    p.MuiTypography-body2{
+      color: #fff ;
+      font-size: 16px;
     }
+  
   
     .MuiListItemIcon-root {
     //   min-width: 30px !important;
       color: #fff;
     }
-  
-    .logout-menu {
-      .MuiTypography-body1,
-      .MuiListItemIcon-root {
-        color: #fa707b;
-      }
+    h4.MuiTypography-h4 {
+      color: rgb(255, 39, 39);
+      font-size: 17px;
     }
   }

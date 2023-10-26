@@ -1,18 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import * as React from "react";
-import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import React, { Fragment, useEffect, useState, useRef } from "react";
+import {
+  styled,
+  useTheme,
+  Theme,
+  CSSObject,
+} from "@mui/material/styles";
+// import LogoName from '../../assets/NEXnex.svg';
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import DashboardTwoToneIcon from "@mui/icons-material/DashboardTwoTone";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -24,14 +26,11 @@ import DataUsageTwoToneIcon from "@mui/icons-material/DataUsageTwoTone";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import PermIdentityTwoToneIcon from "@mui/icons-material/PermIdentityTwoTone";
 import LogoutIcon from "@mui/icons-material/Logout";
-import PersonOutlineTwoToneIcon from "@mui/icons-material/PersonOutlineTwoTone";
 import Header from "../Appbar/app-bar";
 import ROUTES from "../../routes";
-import { Fragment, useEffect, useState } from "react";
-import { Grid, MenuItem, MenuList } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/useAppDispatch";
-import "./LeftNav.scss";
+import { Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import './LeftNav.scss'
 
 const drawerWidth = 200;
 
@@ -44,11 +43,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
   overflowX: "hidden",
   background: "#082C5E",
 });
-const iconStyles = {
-  iconColor: {
-    fill: "#082C5E", // Change this to the color you desire
-  },
-};
+
 
 const closedMixin = (theme: Theme): CSSObject => ({
   transition: theme.transitions.create("width", {
@@ -121,14 +116,30 @@ const Drawer = styled(MuiDrawer, {
 export default function NavBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const drawerRef = useRef(null);
 
   const handleDrawerOpen = () => {
     setOpen(true);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const targetNode = event.target as Node;
+      if (drawerRef.current && targetNode && !drawerRef.current.contains(targetNode)) {
+        setOpen(false);
+      }
+    };
+     
+    
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const listIcons1 = [
     {
       label: "Dashboard",
@@ -197,43 +208,49 @@ export default function NavBar() {
             <Header />
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+        <Drawer ref={drawerRef} variant="permanent" open={open}>
           <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
+            {/* <IconButton onClick={handleDrawerClose}>
               {theme.direction === "rtl" ? (
                 <ChevronRightIcon />
               ) : (
                 <ChevronLeftIcon />
               )}
-            </IconButton>
+            </IconButton> */}
+            {/* <img src={LogoName} className="logo-img"></img> */}
           </DrawerHeader>
-          <Divider />
+          {/* <Divider /> */}
           <List className="menu-items">
-  {listIcons1.map((item) => (
-    <ListItem key={item.label} disablePadding sx={{ display: "block" }}>
-      <ListItemButton onClick={() => navigate(item.path)}>
-        <ListItemIcon>
-          {React.createElement(item.icon)}
-        </ListItemIcon>
-        <ListItemText primary={item.label} />
-      </ListItemButton>
-    </ListItem>
-  ))}
-</List>
+            {listIcons1.map((item) => (
+              <ListItem key={item.label} disablePadding sx={{ display: "block" }}>
+                <ListItemButton onClick={() => navigate(item.path)}>
+                  <ListItemIcon>
+                    {React.createElement(item.icon)}
+                  </ListItemIcon>
+                  <ListItemText primary={<Typography variant="body2">{item.label}</Typography>} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
 
-<List className="menu-items2">
-  {listIcons2.map((item) => (
-    <ListItem key={item.label} disablePadding sx={{ display: "block" }}>
-      <ListItemButton onClick={() => navigate(item.path)}>
-        <ListItemIcon>
-          {React.createElement(item.icon)}
-        </ListItemIcon>
-        <ListItemText primary={item.label} />
-      </ListItemButton>
-    </ListItem>
-  ))}
-</List>
-
+          <List className="menu-items2">
+            {listIcons2.map((item) => (
+              <ListItem key={item.label} disablePadding sx={{ display: "block" }}>
+                <ListItemButton onClick={() => navigate(item.path)}>
+                  <ListItemIcon >
+                    {React.createElement(item.icon)}
+                  </ListItemIcon >
+                  <ListItemText primary={
+                    item.label === "Logout" ? (
+                      <Typography variant="h4" color="error">{item.label}</Typography>
+                    ) : (
+                      <Typography variant="body2" color="textPrimary">{item.label}</Typography>
+                    )
+                  } />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
         </Drawer>
       </Grid>
     </Fragment>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React, { useState } from 'react';
 import {
@@ -25,6 +26,8 @@ const Profile = () => {
   const handleMouseDownPassword = (event:any) => {
     event.preventDefault();
   };
+
+  
 
   return (
     <>
@@ -169,16 +172,5 @@ const Profile = () => {
 };
 
 export default Profile;
-
-
-
-
-
-
-
-
-
-
-
 
 
