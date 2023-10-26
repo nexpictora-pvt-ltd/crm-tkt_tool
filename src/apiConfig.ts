@@ -1,12 +1,12 @@
 
 import axios, { AxiosResponse, Method } from "axios";
 
-export const API_BASE_URL = "http://192.168.0.249:8080";
+export const API_BASE_URL = "https://cnx-backend-dev-xxkh.1.sg-1.fl0.io";
 
 export const API_ENDPOINTS = {
   getPreviewInfo: `/services/preview`,
   getLoginDetails: `/users/login`,
-  getUserDetails: `/users/10001`
+  getUserDetails: `/users/10001 `
 };
 
 interface RequestOptions<T> {

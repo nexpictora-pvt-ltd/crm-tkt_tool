@@ -50,7 +50,7 @@ export default function Header() {
         justifyContent={"start"}
       >
         <Grid
-          container
+          container item
           xs={9}
           sm={7}
           alignItems={"center"}
@@ -72,7 +72,7 @@ export default function Header() {
             />
           </Search>
         </Grid>
-        <Grid container xs={3} sm={5} justifyContent={"flex-end"}>
+        <Grid container item xs={3} sm={5} justifyContent={"flex-end"}>
           <Grid
             xs={6}
             display={{ xs: "none", sm: "block" }}
