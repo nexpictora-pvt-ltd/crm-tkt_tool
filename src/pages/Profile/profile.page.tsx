@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from 'react';
 import { useDispatch,  } from 'react-redux';
-import { Button, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
+import { Button, CircularProgress, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { getProfileAsync } from '../../store/profile/profile.reducer';
+import { getProfileAsync, } from '../../store/profile/profile.reducer';
 import { useAppSelector } from '../../hooks/useAppSelector';
+import { ThemeProvider } from '@mui/material/styles'; // Import ThemeProvider
+import darkTheme from '../../components/Themes/darkTheme'; 
 
 const Profile = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,12 +19,15 @@ const Profile = () => {
   
 
   const accessToken = useAppSelector((state) => state.login.loginResponse.access_token);
+  const user_id = useAppSelector((state) => state.login.loginResponse.user.user_id);
 
-  // console.log(profile.profile.address)
+  // console.log(user_id)
+
   useEffect(() => {
-
-    dispatch(getProfileAsync(accessToken) as any); 
-  }, [dispatch]);
+    const requestInfo = { accessToken, user_id };
+  
+    dispatch(getProfileAsync(requestInfo) as any);
+  }, [dispatch, accessToken, user_id]);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const toggleChangePasswordFields = () => setShowChangePasswordFields((show) => !show);
@@ -33,13 +38,15 @@ const Profile = () => {
 
   return (
     <>
+    <ThemeProvider theme={darkTheme}>
       <Grid container xs={12}>
         <Grid container xs={12} justifyContent={'center'} p={2}>
           <AccountCircleIcon sx={{ width: '200px', height: '200px', color: "#CBEEF0" }} />
         </Grid>
 
         {isLoading ? (
-          <Typography>Loading...</Typography>
+          // <Typography>Loading...</Typography>
+          <CircularProgress/>
         ) : (
           <Grid container xs={12} justifyContent={'center'}>
             <Typography variant='h5' color={'#082C5E'}>
@@ -50,7 +57,7 @@ const Profile = () => {
       </Grid>
 
       {isLoading ? (
-        <Typography>Loading...</Typography>
+        <CircularProgress/>
       ) : (
         <Grid container xs={12}>
           <Grid container xs={12}>
@@ -189,6 +196,7 @@ const Profile = () => {
           </>
         )}
       </Grid>
+      </ThemeProvider>
     </>
   );
 };

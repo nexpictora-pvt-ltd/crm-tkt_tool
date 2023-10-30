@@ -35,7 +35,7 @@ export default function Side() {
           <Grid item xs={12} sm={12} md={4} padding={1}>
             <Card1></Card1>
           </Grid>
-          <Grid xs={12} sm={12} md={4} padding={1}>
+          <Grid item xs={12} sm={12} md={4} padding={1}>
             <Card2></Card2>
           </Grid>
           <Grid

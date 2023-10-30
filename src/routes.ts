@@ -3,10 +3,10 @@ export default Object.freeze({
     DASHBOARD: "/secure/dashboard",
     REGISTER: "/auth/register",
     SERVICE: "/secure/service",
+    PREVIEW: "/secure/preview",
     CUSTOMER: "/secure/customer",
     PROFILE: "/secure/profile",
     ORDERS: "/secure/orders",
-    PREVIEW: '/preview',
     DATA: "/secure/data",
     SETTINGS: "/secure/settings",
   });

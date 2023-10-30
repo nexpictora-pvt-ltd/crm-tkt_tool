@@ -3,6 +3,7 @@ import { userReducer } from "./user/user.reducer";
 import {servicePreviewReducer} from "./preview/servicePreview.reducer";
 import { loginReducer } from "./login/login.reducer";
 import { profileReducer } from "./profile/profile.reducer";
+import { CustomerReducer } from "./customer/customer.reducer";
 
 
 
@@ -10,5 +11,6 @@ export const rootReducer = combineReducers({
   user: userReducer,
   previewService: servicePreviewReducer,
   login: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  customer: CustomerReducer
 });

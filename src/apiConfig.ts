@@ -1,12 +1,14 @@
 
 import axios, { AxiosResponse, Method } from "axios";
 
-export const API_BASE_URL = "https://cnx-backend-dev-xxkh.1.sg-1.fl0.io";
+export const API_BASE_URL = "https://cnx-backend-dev-fcct.1.sg-1.fl0.io";
+// export const API_BASE_URL = "http://192.168.0.101:8080";
 
 export const API_ENDPOINTS = {
   getPreviewInfo: `/services/preview`,
   getLoginDetails: `/users/login`,
-  getUserDetails: `/users/10001 `
+  getUserDetails: `/users/{user_id} `,
+  getCustomerDetails:`/users/all`
 };
 
 interface RequestOptions<T> {
@@ -25,7 +27,6 @@ export const axiosCall = async <T, R>(
     
     console.log("API Request URL:", url);
     
-    // Set headers with Bearer token if provided
     const headers: { [key: string]: string } = {};
     if (bearerToken) {
       headers["Authorization"] = `Bearer ${bearerToken}`;

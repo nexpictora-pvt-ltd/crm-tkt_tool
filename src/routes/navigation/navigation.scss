@@ -2,9 +2,18 @@
 
 
 
-.main-content-grid {
-padding: 2vh  !important;
-// margin-left: 0.8vh !important;
-//  background: red;
 
+.main-content-grid {
+    padding: 10px 0px 10px 0px !important;
+    // height: 100vh;
+    margin-top: 60px !important;
+    overflow: hidden !important;
+    margin-left: 65px !important;
+  
+  }
+
+  @media (max-width: 899px) {
+    .main-content-grid {
+        margin-left: 0 !important;
+    }
 }

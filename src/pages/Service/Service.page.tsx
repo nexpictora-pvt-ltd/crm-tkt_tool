@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button ,Grid, Paper, TextField, Typography } from '@mui/material'
 import  { useState } from 'react'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';

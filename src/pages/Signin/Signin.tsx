@@ -23,6 +23,8 @@ import { useDispatch } from "react-redux";
 import { loginAsync} from '../../store/login/login.reducer';
 import  { API_ENDPOINTS, axiosCall}  from '../../apiConfig';
 import { getServiceLogin } from "../../services/login.service";
+import TopLoadingBar from 'react-top-loading-bar';
+
 
   
 interface apiResponse {
@@ -80,11 +82,12 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState<null | string>(null); // Explicit type annotation
+  const [loadingBarProgress, setLoadingBarProgress] = useState(0);
   const [error, setError] = useState<null | string>(null);
 
 
   const dispatch = useDispatch();
+
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
@@ -108,7 +111,9 @@ const SignIn = () => {
   };
 
   const navigate = useNavigate();
+
   const handleSignIn = async () => {
+    setLoadingBarProgress(30);
     setLoading(true);
   
     try {
@@ -117,27 +122,33 @@ const SignIn = () => {
         password: passwordValue,
       };
   
-      // Dispatch the loginAsync action and cast it to AnyAction
       const action = loginAsync(requestData) as any;
       const resultAction = await dispatch(action);
-  
+
       if (loginAsync.fulfilled.match(resultAction)) {
-        // Authentication was successful
-        setLoading(false);
-        navigate(ROUTES.DASHBOARD);
+        setLoadingBarProgress(100); 
+        setTimeout(() => {
+          setLoadingBarProgress(0); 
+          navigate(ROUTES.DASHBOARD);
+        }, 400); 
       } else {
-        setError("Invalid email or password.");
-        setLoading(false);
+        setError("Invalid email or password");
+        setLoadingBarProgress(0); 
       }
     } catch (apiError) {
       console.error("Sign-in failed: ", apiError);
       setError("An error occurred. Please try again.");
-      setLoading(false);
+      setLoadingBarProgress(0); 
     }
   };
   
   return (
     <Fragment>
+        <TopLoadingBar
+        color="#477fcdce" height={8}
+        progress={loadingBarProgress}
+        onLoaderFinished={() => setLoadingBarProgress(0)}
+      />
       <Grid
         container
         justifyContent="center"
@@ -148,6 +159,7 @@ const SignIn = () => {
         py={{ xs: 0, sm: 15 }}
       >
         <Grid
+        item
           container
           xs={12}
           className="block"
@@ -157,31 +169,31 @@ const SignIn = () => {
           height={"100%"}
           width={"100%"}
         >
-          <Grid
+          <Grid item
             container
             xs={12}
             justifyContent={"center"}
             direction={"row"}
             rowGap={{ xs: 2, sm: 5 }}
           >
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <Typography variant="h1" className="WelcomeMessage">
                 Hi, Welcome Back
               </Typography>{" "}
             </Grid>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <Typography variant="caption" className="Credentials">
                 {" "}
                 Enter your credentials to continue{" "}
               </Typography>{" "}
             </Grid>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <Typography variant="body1" className="SignIn">
                 Sign in with Email address
               </Typography>
             </Grid>
           </Grid>
-          <Grid
+          <Grid item
             container
             xs={12}
             marginTop={{ xs: "0vh", sm: "2vh" }}
@@ -209,7 +221,7 @@ const SignIn = () => {
             />
             
           </Grid>
-          <Grid
+          <Grid item
             container
             xs={12}
             component="form"
@@ -244,21 +256,21 @@ const SignIn = () => {
               }}
             />
           </Grid>
-          <Grid
+          <Grid item
             container
             xs={12}
             marginTop={{ xs: "0vh", sm: "2vh", md: "4vh" }}
             justifyContent={"space-between"}
             direction={{ sm: "row" }}
           >
-            <Grid container xs={12} sm={6}>
+            <Grid item container xs={12} sm={6}>
               <CheckboxLabels />{" "}
             </Grid>
-            <Grid container justifyContent={"flex-end"} xs={12} sm={6}>
+            <Grid item container justifyContent={"flex-end"} xs={12} sm={6}>
               <ForgotPassword />{" "}
             </Grid>
           </Grid>
-          <Grid
+          <Grid item
             container
             className="button-conntainer"
             direction="column"
