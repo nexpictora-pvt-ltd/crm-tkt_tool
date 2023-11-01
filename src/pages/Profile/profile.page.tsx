@@ -6,8 +6,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { getProfileAsync, } from '../../store/profile/profile.reducer';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { ThemeProvider } from '@mui/material/styles'; // Import ThemeProvider
-import darkTheme from '../../components/Themes/darkTheme'; 
+import Cookies from 'js-cookie';
+
 
 const Profile = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,15 +18,14 @@ const Profile = () => {
   const isLoading = useAppSelector((state) => state.profile.isLoading);
   
 
-  const accessToken = useAppSelector((state) => state.login.loginResponse.access_token);
-  const user_id = useAppSelector((state) => state.login.loginResponse.user.user_id);
-
-  // console.log(user_id)
-
+  const accessToken = Cookies.get('token');
+  console.log('Access Token:', accessToken);
+  const user_id = Cookies.get('user_id')
+  
   useEffect(() => {
     const requestInfo = { accessToken, user_id };
   
-    dispatch(getProfileAsync(requestInfo) as any);
+    dispatch(getProfileAsync(requestInfo ) as any);
   }, [dispatch, accessToken, user_id]);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -38,7 +37,7 @@ const Profile = () => {
 
   return (
     <>
-    <ThemeProvider theme={darkTheme}>
+
       <Grid container xs={12}>
         <Grid container xs={12} justifyContent={'center'} p={2}>
           <AccountCircleIcon sx={{ width: '200px', height: '200px', color: "#CBEEF0" }} />
@@ -196,7 +195,7 @@ const Profile = () => {
           </>
         )}
       </Grid>
-      </ThemeProvider>
+
     </>
   );
 };

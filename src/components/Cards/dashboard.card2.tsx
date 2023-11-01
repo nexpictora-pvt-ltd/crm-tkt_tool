@@ -1,9 +1,14 @@
 import React from 'react'
 import { LineChart } from '@mui/x-charts/LineChart';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material';
 const Card2 = () => {
+
+  const theme = useTheme();
+  const backgroundColor = theme.palette.mode === 'dark' ? '#2b2b2b' : '#A4BFF4';
+  
   return (
-    <Box sx={{height:'32vh',backgroundColor:"rgba(65,202,210,1.00)",borderRadius:"15px"}}>
+    <Box sx={{height:'32vh',backgroundColor,borderRadius:"15px"}}>
         <LineChart 
       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
       series={[

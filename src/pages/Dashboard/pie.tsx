@@ -1,14 +1,19 @@
 import React from 'react'
 import { PieChart, pieArcClasses } from '@mui/x-charts/PieChart';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material';
 const data = [
     { id: 0, value: 10, label: 'series A',color:"#A4BFF4" },
     { id: 1, value: 15, label: 'series B',color:"#D36A2F" },
     { id: 2, value: 20, label: 'series C',color:"rgba(65,202,210,1.00)" },
   ];
 const Pie = () => {
+
+  const theme = useTheme();
+  const backgroundColor = theme.palette.mode === 'dark' ? '#2b2b2b' : '#EFEFEF';
+  
   return (
-    <Box sx={{height:'430px',backgroundColor:"#EFEFEF",borderRadius:"15px"}}>
+    <Box sx={{height:'430px',backgroundColor,borderRadius:"15px"}}>
       <PieChart
       series={[
         {

@@ -24,6 +24,7 @@ import { loginAsync} from '../../store/login/login.reducer';
 import  { API_ENDPOINTS, axiosCall}  from '../../apiConfig';
 import { getServiceLogin } from "../../services/login.service";
 import TopLoadingBar from 'react-top-loading-bar';
+import { setIsUserAuthenticated } from "../../store/user/user.reducer";
 
 
   
@@ -85,9 +86,8 @@ const SignIn = () => {
   const [loadingBarProgress, setLoadingBarProgress] = useState(0);
   const [error, setError] = useState<null | string>(null);
 
-
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
@@ -110,37 +110,38 @@ const SignIn = () => {
     setShowPassword(!showPassword);
   };
 
-  const navigate = useNavigate();
-
   const handleSignIn = async () => {
     setLoadingBarProgress(30);
     setLoading(true);
-  
+
     try {
       const requestData = {
         email,
         password: passwordValue,
       };
-  
+
       const action = loginAsync(requestData) as any;
       const resultAction = await dispatch(action);
 
       if (loginAsync.fulfilled.match(resultAction)) {
-        setLoadingBarProgress(100); 
+        setLoadingBarProgress(100);
+        dispatch(setIsUserAuthenticated(true));
+        console.log(setIsUserAuthenticated)
         setTimeout(() => {
-          setLoadingBarProgress(0); 
+          setLoadingBarProgress(0);
           navigate(ROUTES.DASHBOARD);
-        }, 400); 
+        }, 400);
       } else {
         setError("Invalid email or password");
-        setLoadingBarProgress(0); 
+        setLoadingBarProgress(0);
       }
     } catch (apiError) {
       console.error("Sign-in failed: ", apiError);
       setError("An error occurred. Please try again.");
-      setLoadingBarProgress(0); 
+      setLoadingBarProgress(0);
     }
   };
+
   
   return (
     <Fragment>

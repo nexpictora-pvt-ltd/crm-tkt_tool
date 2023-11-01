@@ -30,7 +30,8 @@ import Header from "../Appbar/app-bar";
 import ROUTES from "../../routes";
 import { Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import './LeftNav.scss'
+import './LeftNav.scss';
+import { removeCookies } from '../../../scripts/removeCookie'; 
 
 const drawerWidth = 200;
 
@@ -120,6 +121,12 @@ export default function NavBar() {
 
   const handleDrawerOpen = () => {
     setOpen(true);
+  };
+
+  const handleLoginClick = () => {
+    removeCookies();
+    navigate(ROUTES.SIGN_IN)
+  
   };
 
 
@@ -236,7 +243,7 @@ export default function NavBar() {
           <List className="menu-items2">
             {listIcons2.map((item) => (
               <ListItem key={item.label} disablePadding sx={{ display: "block" }}>
-                <ListItemButton onClick={() => navigate(item.path)}>
+                <ListItemButton  onClick={item.label === 'Logout' ? handleLoginClick : () => navigate(item.path)}>
                   <ListItemIcon >
                     {React.createElement(item.icon)}
                   </ListItemIcon >
@@ -253,6 +260,7 @@ export default function NavBar() {
           </List>
         </Drawer>
       </Grid>
+
     </Fragment>
   );
 }

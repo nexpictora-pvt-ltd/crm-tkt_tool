@@ -1,4 +1,9 @@
-.dark-theme {
-    background-color: #121212;
-    color: #ffffff;
-  }
+/* Default (light) theme */
+body {
+  background-color: white;
+}
+
+/* Dark theme */
+body.dark-background {
+  background-color: black;
+}

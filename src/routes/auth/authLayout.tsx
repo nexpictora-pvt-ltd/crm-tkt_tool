@@ -12,12 +12,12 @@ const AuthLayout = () => {
         <Container maxWidth={false} disableGutters>
           <Grid container direction="column">
             <Grid item spacing={1} container direction="row" sx={{ overflow: "hidden" }}>
-              <Hidden mdDown>
-                <Grid item xs={12} md={5} className="image-grid" justifyContent={'start'}>
+              <Hidden lgDown>
+                <Grid item xs={12} sm={0} lg={5} className="image-grid" justifyContent={'start'}>
                   <img src={SigninBG} alt="Background" className="SigninBgimg" />
                 </Grid>
               </Hidden>
-              <Grid item xs={12} md={7} className="auth-component-grid">
+              <Grid item xs={12} lg={7} className="auth-component-grid">
                 <Outlet />
               </Grid>
             </Grid>

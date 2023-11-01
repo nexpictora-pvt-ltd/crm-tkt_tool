@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
-import './Setting.scss'
+import React from 'react';
+import { useThemeContext } from './themeContext';
+import './Setting.scss';
 
 function Settings() {
-  const [isDarkMode, setDarkMode] = useState(false);
-
-  const handleThemeChange = () => {
-    setDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark-theme', !isDarkMode);
-  };
+  const { toggleTheme, theme } = useThemeContext();
 
   return (
     <div>
       <h2>Theme Settings</h2>
       <label>
         Dark Mode:
-        <input type="checkbox" checked={isDarkMode} onChange={handleThemeChange} />
+        <input type="checkbox" checked={theme === 'dark'} onChange={toggleTheme} />
       </label>
     </div>
   );

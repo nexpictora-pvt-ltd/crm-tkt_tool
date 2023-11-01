@@ -7,7 +7,7 @@ import Card1 from "../../components/Cards/dashboard.card1";
 import Card2 from "../../components/Cards/dashboard.card2";
 import Pie from "./pie";
 // import { lightBlue } from '@mui/material/colors';
-import { Grid } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 // import DrawerRight from './right-nav';
 
 const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
@@ -23,6 +23,10 @@ const xLabels = [
   "Page G",
 ];
 export default function Side() {
+
+  const theme = useTheme();
+  const backgroundColor = theme.palette.mode === 'dark' ? '#2b2b2b' : '#EFEFEF';
+  
   return (
     <>
       <Grid container>
@@ -52,7 +56,7 @@ export default function Side() {
               <Box
                 sx={{
                   height: "15vh",
-                  backgroundColor: "#A4BFF4",
+                  backgroundColor,
                   borderRadius: "15px",
                 }}
               >
@@ -63,7 +67,7 @@ export default function Side() {
               <Box
                 sx={{
                   height: "15vh",
-                  backgroundColor: "#A4BFF4",
+                  backgroundColor,
                   borderRadius: "15px",
                 }}
               >
@@ -77,7 +81,7 @@ export default function Side() {
             <Box
               sx={{
                 height: "430px",
-                backgroundColor: "#EFEFEF",
+                backgroundColor,
                 borderRadius: "15px",
               }}
             >

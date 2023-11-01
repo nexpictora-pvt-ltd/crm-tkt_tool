@@ -1,8 +1,8 @@
 
 import axios, { AxiosResponse, Method } from "axios";
 
-export const API_BASE_URL = "https://cnx-backend-dev-fcct.1.sg-1.fl0.io";
-// export const API_BASE_URL = "http://192.168.0.101:8080";
+export const API_BASE_URL = "https://cnx-backend-dev-gdgr.3.us-1.fl0.io";
+// export const API_BASE_URL = "http://192.168.0.102:8080";
 
 export const API_ENDPOINTS = {
   getPreviewInfo: `/services/preview`,

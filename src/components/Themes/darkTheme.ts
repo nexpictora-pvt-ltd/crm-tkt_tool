@@ -2,9 +2,12 @@ import { createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark', 
     primary: {
-      main: '#FFFFFF',
+      main: '#D36A2F',
+    },
+    background: {
+      default: '#1d1d1d', // Set the background color to black
     },
     text: {
       primary: '#FFFFFF', // Set text color to white

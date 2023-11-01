@@ -6,14 +6,15 @@ import { Grid, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/mat
 import { getCustomerAsync } from "../../store/customer/customer.reducer";
 import { Customer } from "../../store/customer/customer.state";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { AppDispatch } from "../../store/store"; // Import your AppDispatch type
+import { AppDispatch } from "../../store/store";
+import Cookies from "js-cookie";
 
 export default function CustomerTable() {
   const dispatch: AppDispatch = useDispatch(); // Specify the dispatch type
   const filteredRecords: Customer[] = useAppSelector((state) => state.customer.Customers);
   const isLoading = useAppSelector((state) => state.customer.isLoading);
 
-  const accessToken = useAppSelector((state) => state.login.loginResponse.access_token);
+  const accessToken = Cookies.get('token');
 
   useEffect(() => {
     // Dispatch the async thunk using the dispatch function
