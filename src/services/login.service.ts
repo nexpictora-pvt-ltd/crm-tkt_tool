@@ -4,6 +4,7 @@ export const getServiceLogin = async (request: unknown): Promise<unknown> => {
     method: "POST",
     body: request,
     url: API_ENDPOINTS.getLoginDetails,
+    withCredentials : false
   });
 };
 

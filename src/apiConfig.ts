@@ -1,8 +1,7 @@
-
 import axios, { AxiosResponse, Method } from "axios";
 
 export const API_BASE_URL = "https://cnx-backend-dev-gdgr.3.us-1.fl0.io";
-// export const API_BASE_URL = "http://192.168.0.102:8080";
+// export const API_BASE_URL = "http://192.168.0.120:8080";
 
 export const API_ENDPOINTS = {
   getPreviewInfo: `/services/preview`,
@@ -17,13 +16,14 @@ interface RequestOptions<T> {
   body?: T;
   params?: { [key: number]: number | number };
   bearerToken?: string;
+  withCredentials?: boolean; // Add withCredentials flag
 }
 
 export const axiosCall = async <T, R>(
   options: RequestOptions<T>
 ): Promise<R> => {
   try {
-    const { method, url, body, params, bearerToken } = options;
+    const { method, url, body, params, bearerToken, withCredentials } = options;
     
     console.log("API Request URL:", url);
     
@@ -42,6 +42,7 @@ export const axiosCall = async <T, R>(
       headers: headers,
       data: body,
       params: params,
+      withCredentials: withCredentials || false, // Set withCredentials flag
     });
 
     console.log("API Response Data:", response.data);
