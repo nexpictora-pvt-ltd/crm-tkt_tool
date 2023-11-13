@@ -1,22 +1,34 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import './Setting.scss';
+import { Grid, Typography } from '@mui/material';
+import { useTheme } from './themeContext';
+
 
 
 
 const Settings: React.FC = (props) => {
+  const { toggleTheme, currentTheme } = useTheme();
+
   return (
-    <div>
-      <meta charSet="UTF-8" />
-      <link rel="stylesheet" type="text/css" href="styles.css" />
-      <input type="checkbox" id="darkmode-toggle" />
-      <label htmlFor="darkmode-toggle">
-          
-      </label>
-      <div className="background" />
-    </div>
+    <Grid container>
+
+      <Grid item>
+        {/* <Typography variant='h2'> Change Theme: </Typography> */}
+        <input
+          type="checkbox"
+          id="darkmode-toggle"
+          className="toggleInput"
+          onChange={toggleTheme}
+        />
+        <label htmlFor="darkmode-toggle" className="toggleLabel"></label>
+      </Grid>
+    </Grid>
   );
 };
 
 export default Settings;
+
+
 
 

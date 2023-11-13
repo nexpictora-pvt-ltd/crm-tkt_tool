@@ -13,7 +13,7 @@ import Order from "./pages/Oders/Orders.page";
 import { Data } from "./pages/Data/Data";
 import  Settings  from "./pages/Settings/Setting";
 import CustomerTable from "./components/Table/customer.table";
-import { ThemeProviderWrapper } from "./pages/Settings/themeContext";
+import {   ThemeProvider } from "./pages/Settings/themeContext";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Cookies from 'js-cookie';
@@ -34,7 +34,7 @@ export default function App() {
   
   return (
     <>
-    <ThemeProviderWrapper >
+    <ThemeProvider >
     <Routes>
       <Route path="/" element={<PrivateRoutes />} >
       <Route path="/secure" element={<Navigation />}>
@@ -53,7 +53,7 @@ export default function App() {
         <Route path="register" element={<Register />} />
       </Route>
     </Routes>
-    </ThemeProviderWrapper>
+    </ThemeProvider>
     </>
   );
 }
